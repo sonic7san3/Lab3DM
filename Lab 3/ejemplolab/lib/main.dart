@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Demo de Flutter',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -68,6 +68,20 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _decreaseCounter() {
+    setState(() {
+
+      _counter--;
+    });
+  }
+
+  void _resetCounter() {
+    setState(() {
+
+      _counter = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -118,8 +132,33 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Aumentar',
-        child: const Icon(Icons.punch_clock_sharp),
+        child: const Icon(Icons.plus_one),
       ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+      persistentFooterAlignment: AlignmentDirectional.bottomCenter,
+      persistentFooterButtons: [
+        Row(
+
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            
+          FloatingActionButton(
+            onPressed: _decreaseCounter,
+            child: const Icon(Icons.minimize),
+             tooltip: 'Disminuir'
+          ),
+           FloatingActionButton(
+            onPressed: _resetCounter,
+            child: const Icon(Icons.restore),
+             tooltip: 'Reiniciar'
+          ),
+          ],
+          
+           
+        )
+
+     ],
+    
+        );
+
   }
 }
