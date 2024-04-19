@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
   runApp(const MyApp());
@@ -56,6 +57,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  String iconobased= "assets/icons/sonic.svg";
 
   void _incrementCounter() {
     setState(() {
@@ -121,6 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             const Text(
               'Has pulsado el boton esta cantidad de veces:',
+              style: TextStyle(fontFamily: "SonicFont"),
             ),
             Text(
               '$_counter',
@@ -148,7 +151,10 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
            FloatingActionButton(
             onPressed: _resetCounter,
-            child: const Icon(Icons.restore),
+            child: SvgPicture.asset(
+                                    iconobased,
+                                     semanticsLabel: 'Acme Logo'
+          ),
              tooltip: 'Reiniciar'
           ),
           ],
