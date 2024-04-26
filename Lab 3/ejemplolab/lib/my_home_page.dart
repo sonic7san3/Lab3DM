@@ -70,10 +70,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
        child: Card(
+      ///  color: Colors.blue,
         child: Column(
           
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            
              SvgPicture.asset(iconoresultado, height: 100, width: 100,),
             const Text(
               'Has pulsado el boton esta cantidad de veces:',
@@ -85,11 +87,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
              Text(resultado, style: TextStyle(fontFamily: "SonicFont")), 
             Row(
-
+                
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             FloatingActionButton(
             onPressed: _incrementCounter,
+            
             child: const Icon(Icons.plus_one),
              tooltip: 'Aumentar'
           ),
