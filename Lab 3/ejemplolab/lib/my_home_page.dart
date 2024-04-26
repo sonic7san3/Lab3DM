@@ -11,6 +11,7 @@ final String title;
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   String iconobased= "assets/icons/sonic.svg";
+  String iconoresultado="assets/icons/sonicReinicio.svg";
   String resultado = ""; 
 
   void _incrementCounter() {
@@ -20,10 +21,12 @@ class _MyHomePageState extends State<MyHomePage> {
        if(_counter >= 15)
     {
       resultado = "Ganaste";
+      iconoresultado = "assets/icons/SonicHappy.svg";
     }
     else  if(_counter == 10)
     {
       resultado = "Perdiste";
+      iconoresultado = "assets/icons/sonicSad.svg";
     }
     });
   }
@@ -35,10 +38,12 @@ class _MyHomePageState extends State<MyHomePage> {
       if(_counter >= 15)
     {
       resultado = "Ganaste";
+      iconoresultado = "assets/icons/SonicHappy.svg";
     }
     else  if(_counter == 14)
     {
       resultado = "Perdiste";
+      iconoresultado = "assets/icons/sonicSad.svg";
     }
     });
   }
@@ -48,13 +53,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
       _counter = 0;
       resultado = "Empecemos de nuevo";
+       iconoresultado = "assets/icons/sonicReinicio.svg";
     });
 
-    void _nombreResultado()
-    {
-       
-   
-    }
   }
 
   @override
@@ -68,11 +69,12 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-       
+       child: Card(
         child: Column(
           
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+             SvgPicture.asset(iconoresultado, height: 100, width: 100,),
             const Text(
               'Has pulsado el boton esta cantidad de veces:',
               style: TextStyle(fontFamily: "SonicFont"),
@@ -82,22 +84,15 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
              Text(resultado, style: TextStyle(fontFamily: "SonicFont")), 
-            
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Aumentar',
-        child: const Icon(Icons.plus_one),
-      ), 
-      persistentFooterAlignment: AlignmentDirectional.bottomCenter,
-      persistentFooterButtons: [
-        Row(
+            Row(
 
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            
+            FloatingActionButton(
+            onPressed: _incrementCounter,
+            child: const Icon(Icons.plus_one),
+             tooltip: 'Aumentar'
+          ),
           FloatingActionButton(
             onPressed: _decreaseCounter,
             child: const Icon(Icons.minimize),
@@ -115,9 +110,12 @@ class _MyHomePageState extends State<MyHomePage> {
           
            
         )
+          ],
+        ),
+      ),
+      
 
-     ],
-  
+      ),
         );
 
   }
