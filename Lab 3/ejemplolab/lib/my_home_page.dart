@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+
+import 'details.dart';
+import 'listDetail.dart';
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 final String title;
@@ -8,6 +12,9 @@ final String title;
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
+
+
+
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   String iconobased= "assets/icons/sonic.svg";
@@ -90,25 +97,23 @@ class _MyHomePageState extends State<MyHomePage> {
                 
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            FloatingActionButton(
+            ElevatedButton(
             onPressed: _incrementCounter,
             
             child: const Icon(Icons.plus_one),
-             tooltip: 'Aumentar'
           ),
-          FloatingActionButton(
+          ElevatedButton(
             onPressed: _decreaseCounter,
             child: const Icon(Icons.minimize),
-             tooltip: 'Disminuir'
           ),
-           FloatingActionButton(
+           ElevatedButton(
             onPressed: _resetCounter,
             child: SvgPicture.asset(
                                     iconobased,
                                      semanticsLabel: 'Acme Logo'
           ),
-             tooltip: 'Reiniciar'
           ),
+         
           ],
           
            
@@ -119,7 +124,60 @@ class _MyHomePageState extends State<MyHomePage> {
       
 
       ),
+      persistentFooterAlignment: AlignmentDirectional.bottomCenter,
+      persistentFooterButtons: <Widget>[
+ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const Details())); //ir a Detail
+            },
+            child: const Text("Detail")),
+        ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const DetallesLista())); //ir a lista
+            },
+            child: const Text("Lista"))
+      ]
         );
 
   }
 }
+
+/*class _Details extends StatelessWidget {
+const _Details({super.key});
+  @override
+  Widget build(BuildContext context) {
+   
+    return Scaffold(
+      appBar: AppBar(
+       
+        backgroundColor: Color.fromARGB(255, 2, 36, 174),
+        
+        title: Text("Detalles"),
+      ),
+      body: Center(
+      child:  Row(
+                
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Text("PAPU NACHO"),
+            
+          ],
+          
+           
+                      )
+        
+        ),
+      );
+      
+
+
+
+  }
+}
+*/
