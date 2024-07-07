@@ -33,7 +33,28 @@ class DetallesLista extends StatelessWidget {
                 child: const Center(
                   child: Text("Objeto 3",  style: TextStyle(fontFamily: "SonicFont")),
                 )
-                ), 
+                ),
+                 Container(
+                height: 55,
+                color: Color.fromARGB(255, 207, 1, 1),
+                child: const Center(
+                  child: Text("Objeto 4",  style: TextStyle(fontFamily: "SonicFont")),
+                )
+                ),
+                Container(
+                height: 55,
+                color: Color.fromARGB(255, 207, 1, 1),
+                child: const Center(
+                  child: Text("Objeto 5",  style: TextStyle(fontFamily: "SonicFont")),
+                )
+                ),
+                Container(
+                height: 55,
+                color: Color.fromARGB(255, 207, 1, 1),
+                child: const Center(
+                  child: Text("Objeto 6",  style: TextStyle(fontFamily: "SonicFont")),
+                )
+                ),
                 ElevatedButton(onPressed: () {
               Navigator.pop(context); //regresar
               },

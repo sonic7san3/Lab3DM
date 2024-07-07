@@ -4,6 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import 'details.dart';
 import 'listDetail.dart';
+import 'gestos.dart';
+import 'sensores.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -117,6 +119,61 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Color.fromARGB(255, 2, 36, 174),
         
         title: Text(widget.title),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 2, 36, 174),
+              ),
+              child: Text('Menu'),
+            ),
+            ListTile(
+              title: const Text('Inicio'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('Detalles'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Details()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Lista'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const DetallesLista()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Sensores'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Sensores()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Gestos'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Gestos()),
+                );
+              },
+            ),
+          ],
+        ),
       ),
       body: Center(
        child: Card(
