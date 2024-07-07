@@ -64,6 +64,49 @@ class _MyHomePageState extends State<MyHomePage> {
     });
 
   }
+  void initState() {
+    super.initState();
+    print('initState: Empezando Estado');
+    print('initState: montado = $mounted');
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    print('didChangeDependencies: Las Dependencias fueron cambiadas');
+  }
+
+  @override
+  void didUpdateWidget(covariant MyHomePage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    print('didUpdateWidget: El Widget actualizado');
+  }
+
+  @override
+  void setState(VoidCallback fn) {
+    super.setState(fn);
+    print('setState: El estado del programa ha sido restablecido');
+  }
+
+  @override
+  void deactivate() {
+    print('deactivate: Un widget esta siendo removido');
+    super.deactivate();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    print('dispose: Eliminando esto');
+    print('dispose: montado = $mounted');
+  }
+
+  @override
+  void reassemble() {
+    super.reassemble();
+    //print('reassemble: La aplicación se reensamblor');
+    print('reassemble: montado = $mounted');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -148,36 +191,3 @@ ElevatedButton(
   }
 }
 
-/*class _Details extends StatelessWidget {
-const _Details({super.key});
-  @override
-  Widget build(BuildContext context) {
-   
-    return Scaffold(
-      appBar: AppBar(
-       
-        backgroundColor: Color.fromARGB(255, 2, 36, 174),
-        
-        title: Text("Detalles"),
-      ),
-      body: Center(
-      child:  Row(
-                
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text("PAPU NACHO"),
-            
-          ],
-          
-           
-                      )
-        
-        ),
-      );
-      
-
-
-
-  }
-}
-*/
